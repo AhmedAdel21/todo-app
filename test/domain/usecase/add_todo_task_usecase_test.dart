@@ -16,6 +16,7 @@ void main() {
 
   setUp(() {
     mockRepository = MockRepository();
+    
     usecase = AddTodoTaskUseCase(mockRepository);
   });
   final timeNow = DateTime.now();

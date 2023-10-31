@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:todo_app/app/di.dart';
-import 'package:todo_app/data/local_data_source/permanent_data_source/app_cache.dart';
+import 'package:todo_app/data/data_source/local_data_source/permanent_data_source/app_cache.dart';
 import 'package:todo_app/presentation/navigation/app_router.dart';
 
 class MyApp extends StatefulWidget {

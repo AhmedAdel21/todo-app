@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/app/di.dart';
-import 'package:todo_app/data/local_data_source/permanent_data_source/app_cache.dart';
+import 'package:todo_app/data/data_source/local_data_source/permanent_data_source/app_cache.dart';
+import 'package:todo_app/domain/model/models.dart';
 import 'package:todo_app/domain/usecase/usecase.dart';
 import 'package:todo_app/presentation/ui/add_new_task_page/view/add_new_task_page.dart';
-import 'package:todo_app/presentation/ui/common/ui_models/ui_models.dart';
 import 'package:todo_app/presentation/ui/done_task_page/view/done_task_page.dart';
 import 'package:todo_app/presentation/ui/home_page/view/home_page.dart';
-import 'package:todo_app/presentation/ui/splash_page/view/splash_page.dart';
+import 'package:todo_app/presentation/ui/login_page/view/login_page.dart';
+import 'package:todo_app/presentation/ui/splash_page/splash_page.dart';
 
 class RoutesPath {
   static const splash = "/Splash";
@@ -40,7 +41,7 @@ class AppRouter {
     // 6
     // refreshListenable: _appNavigationManager,
     // 7
-    initialLocation: RoutesPath.home,
+    initialLocation: RoutesPath.splash,
     // 8
     routes: [
       //  Splash Page
@@ -48,6 +49,12 @@ class AppRouter {
         name: RoutesName.splash,
         path: RoutesPath.splash,
         builder: (context, state) => const SplashPage(),
+      ),
+      //  Login Page
+      GoRoute(
+        name: RoutesName.login,
+        path: RoutesPath.login,
+        builder: (context, state) => const LoginPage(),
       ),
       //  Home Page
       GoRoute(
@@ -65,6 +72,7 @@ class AppRouter {
           return AddNewTaskPage(addTodoTaskUseCase);
         },
       ),
+      // Done tasks page
       GoRoute(
         name: RoutesName.doneTasks,
         path: RoutesPath.doneTasks,
@@ -87,11 +95,11 @@ class AppRouter {
       );
     },
     redirect: (ctx, goRouterState) async {
-      // final loggedIn = _appPreferences.getIsUserLoggedIn();
+      final loggedIn = _appPreferences.getIsUserLoggedIn();
 
-      // final loggingIn = goRouterState.location == RoutesPath.login;
+      final loggingIn = goRouterState.location == RoutesPath.login;
 
-      // if (!loggedIn) return loggingIn ? null : RoutesPath.login;
+      if (!loggedIn) return loggingIn ? null : RoutesPath.login;
 
       return null;
     },

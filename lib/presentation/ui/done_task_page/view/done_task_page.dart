@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_app/domain/model/models.dart';
 import 'package:todo_app/presentation/resources/assets_manager.dart';
 import 'package:todo_app/presentation/resources/color_manager.dart';
 import 'package:todo_app/presentation/resources/font_manager.dart';

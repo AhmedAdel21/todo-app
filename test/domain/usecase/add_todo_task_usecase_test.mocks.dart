@@ -8,7 +8,8 @@ import 'dart:async' as _i4;
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:todo_app/app/error/failure.dart' as _i5;
-import 'package:todo_app/data/requests.dart' as _i6;
+import 'package:todo_app/data/requests.dart' as _i7;
+import 'package:todo_app/domain/model/models.dart' as _i6;
 import 'package:todo_app/domain/repository/repository.dart' as _i3;
 
 // ignore_for_file: type=lint
@@ -50,8 +51,26 @@ class MockRepository extends _i1.Mock implements _i3.Repository {
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
   @override
+  _i4.Future<_i2.Either<_i5.Failure, _i6.Authentication>> login(
+          _i7.LoginRequest? loginRequest) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #login,
+          [loginRequest],
+        ),
+        returnValue:
+            _i4.Future<_i2.Either<_i5.Failure, _i6.Authentication>>.value(
+                _FakeEither_0<_i5.Failure, _i6.Authentication>(
+          this,
+          Invocation.method(
+            #login,
+            [loginRequest],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.Failure, _i6.Authentication>>);
+  @override
   _i4.Future<_i2.Either<_i5.Failure, int>> addTodoTask(
-          _i6.TodoTaskRequestObject? request) =>
+          _i7.TodoTaskRequestObject? request) =>
       (super.noSuchMethod(
         Invocation.method(
           #addTodoTask,
@@ -66,4 +85,40 @@ class MockRepository extends _i1.Mock implements _i3.Repository {
           ),
         )),
       ) as _i4.Future<_i2.Either<_i5.Failure, int>>);
+  @override
+  _i4.Future<_i2.Either<_i5.Failure, Map<String, _i6.TodoTask>>>
+      getAllTodoTasks() => (super.noSuchMethod(
+            Invocation.method(
+              #getAllTodoTasks,
+              [],
+            ),
+            returnValue: _i4.Future<
+                    _i2.Either<_i5.Failure, Map<String, _i6.TodoTask>>>.value(
+                _FakeEither_0<_i5.Failure, Map<String, _i6.TodoTask>>(
+              this,
+              Invocation.method(
+                #getAllTodoTasks,
+                [],
+              ),
+            )),
+          ) as _i4.Future<_i2.Either<_i5.Failure, Map<String, _i6.TodoTask>>>);
+  @override
+  _i4.Future<_i2.Either<_i5.Failure, Map<String, _i6.TodoTask>>>
+      updateTodoTasks(
+              Map<String, _i7.TodoTaskRequestObject>? todoTasksToUpdate) =>
+          (super.noSuchMethod(
+            Invocation.method(
+              #updateTodoTasks,
+              [todoTasksToUpdate],
+            ),
+            returnValue: _i4.Future<
+                    _i2.Either<_i5.Failure, Map<String, _i6.TodoTask>>>.value(
+                _FakeEither_0<_i5.Failure, Map<String, _i6.TodoTask>>(
+              this,
+              Invocation.method(
+                #updateTodoTasks,
+                [todoTasksToUpdate],
+              ),
+            )),
+          ) as _i4.Future<_i2.Either<_i5.Failure, Map<String, _i6.TodoTask>>>);
 }

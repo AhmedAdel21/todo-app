@@ -29,3 +29,9 @@ class AddTodoTaskUseCaseInput extends Equatable {
         isDone,
       ];
 }
+
+class UserLoginDataUseCaseInput {
+  String userName;
+  String password;
+  UserLoginDataUseCaseInput(this.userName, this.password);
+}

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:todo_app/domain/model/models.dart';
 import 'package:todo_app/presentation/resources/color_manager.dart';
 import 'package:todo_app/presentation/resources/font_manager.dart';
 import 'package:todo_app/presentation/resources/strings_manager.dart';
 import 'package:todo_app/presentation/resources/styles_manager.dart';
 import 'package:todo_app/presentation/resources/values_manager.dart';
 import 'package:todo_app/presentation/ui/common/todo_task_card_icon/todo_task_card_icon.dart';
-import 'package:todo_app/presentation/ui/common/ui_models/ui_models.dart';
 
 class TodoTaskDialog extends StatelessWidget {
   final TodoTask todoTask;

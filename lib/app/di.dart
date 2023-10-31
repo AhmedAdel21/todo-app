@@ -1,12 +1,18 @@
 import 'package:get_it/get_it.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:todo_app/data/local_data_source/local_data_source.dart';
-import 'package:todo_app/data/local_data_source/permanent_data_source/app_cache.dart';
+import 'package:todo_app/data/data_source/local_data_source/local_data_source.dart';
+import 'package:todo_app/data/data_source/local_data_source/permanent_data_source/app_cache.dart';
+import 'package:todo_app/data/data_source/remote_data_source/remote_data_source.dart';
 import 'package:todo_app/data/managers/notification_plugin_manager_impl.dart';
+import 'package:todo_app/data/network/dio_factory.dart';
+import 'package:todo_app/data/network/network_info.dart';
+import 'package:todo_app/data/network/rest_api/app_api.dart';
 import 'package:todo_app/data/repository/repository_impl.dart';
 import 'package:todo_app/domain/managers/notification_manager.dart';
 import 'package:todo_app/domain/managers/notification_plugin_manager.dart';
 import 'package:todo_app/domain/repository/repository.dart';
+import 'package:todo_app/domain/usecase/login_usecase.dart';
 import 'package:todo_app/presentation/navigation/app_navigation_manager.dart';
 
 import '../domain/usecase/usecase.dart';
@@ -25,12 +31,27 @@ class DI {
         () => AppSharedPrefsImpl(_instance()));
 
     // network info
+    _instance.registerLazySingleton<NetworkInfo>(
+        () => NetworkInfoImpl(InternetConnectionChecker()));
+
+    // LocalDataSource
     _instance
         .registerLazySingleton<LocalDataSource>(() => LocalDataSourceImpl());
 
-    // init repo
+    // dio factory
+    _instance.registerLazySingleton<DioFactory>(() => DioFactory(_instance()));
+
+    // app service client
+    final dio = await _instance<DioFactory>().getDio;
     _instance
-        .registerLazySingleton<Repository>(() => RepositoryImpl(_instance()));
+        .registerLazySingleton<AppServiceClient>(() => AppServiceClient(dio));
+
+    _instance.registerLazySingleton<RemoteDataSource>(
+        () => RemoteDataSourceImpl(_instance()));
+
+    // init repo
+    _instance.registerLazySingleton<Repository>(
+        () => RepositoryImpl(_instance(), _instance(), _instance()));
     await _instance<Repository>().initRepo();
 
     _initUseCases();
@@ -55,5 +76,7 @@ class DI {
         () => GetAllTodoTasksUseCase(_instance()));
     _instance.registerLazySingleton<UpdateTodoTasksUseCase>(
         () => UpdateTodoTasksUseCase(_instance()));
+    _instance
+        .registerLazySingleton<LoginUseCase>(() => LoginUseCase(_instance()));
   }
 }

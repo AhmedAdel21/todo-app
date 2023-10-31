@@ -1,7 +1,6 @@
-
-import 'package:todo_app/data/local_data_source/local_data_source_model.dart';
-import 'package:todo_app/data/local_data_source/permanent_data_source/hive_database.dart/hive_classes.dart';
-import 'package:todo_app/data/local_data_source/permanent_data_source/hive_database.dart/hive_helper.dart';
+import 'package:todo_app/data/data_source/local_data_source/local_data_source_model.dart';
+import 'package:todo_app/data/data_source/local_data_source/permanent_data_source/hive_database.dart/hive_classes.dart';
+import 'package:todo_app/data/data_source/local_data_source/permanent_data_source/hive_database.dart/hive_helper.dart';
 
 import 'permanent_data_source/hive_database.dart/hive_database_manager.dart';
 

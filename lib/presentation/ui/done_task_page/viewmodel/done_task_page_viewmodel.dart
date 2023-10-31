@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:todo_app/domain/model/models.dart';
 import 'package:todo_app/presentation/resources/strings_manager.dart';
 import 'package:todo_app/presentation/ui/common/base_viewmodel/base_viewmodel.dart';
 import 'package:todo_app/presentation/ui/common/ui_models/ui_models.dart';
@@ -54,4 +55,3 @@ abstract class _DoneTasksPageViewModelOutputs {
 
   String get getTitle;
 }
-

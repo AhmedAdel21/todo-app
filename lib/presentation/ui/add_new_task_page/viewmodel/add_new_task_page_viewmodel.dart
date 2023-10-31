@@ -4,6 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/app/di.dart';
+import 'package:todo_app/app/global_functions.dart';
 import 'package:todo_app/domain/managers/notification_manager.dart';
 import 'package:todo_app/domain/model/models.dart';
 import 'package:todo_app/domain/usecase/inputs.dart';
@@ -119,14 +120,12 @@ class AddNewTaskPageViewModel extends BaseViewModel
   }
 
   bool get _isAllInputsValid {
-    return _isNotNull(_addTodoTaskObject.icon) &&
-        _isNotNull(_addTodoTaskObject.name) &&
-        _isNotNull(_addTodoTaskObject.description) &&
-        _isNotNull(_addTodoTaskObject.dateTime) &&
-        _isNotNull(_addTodoTaskObject.timeOfDay);
+    return isNotNull(_addTodoTaskObject.icon) &&
+        isNotNull(_addTodoTaskObject.name) &&
+        isNotNull(_addTodoTaskObject.description) &&
+        isNotNull(_addTodoTaskObject.dateTime) &&
+        isNotNull(_addTodoTaskObject.timeOfDay);
   }
-
-  bool _isNotNull(Object? ob) => ob != null;
 
   @override
   void addNewTask(BuildContext ctx, GlobalKey<FormState> formKey) async {

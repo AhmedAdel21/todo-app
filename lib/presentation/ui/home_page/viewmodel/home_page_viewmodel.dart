@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:side_sheet/side_sheet.dart';
 import 'package:todo_app/app/di.dart';
 import 'package:todo_app/app/extensions.dart';
+import 'package:todo_app/domain/model/models.dart';
 import 'package:todo_app/domain/usecase/usecase.dart';
 import 'package:todo_app/presentation/resources/assets_manager.dart';
 import 'package:todo_app/presentation/resources/strings_manager.dart';
