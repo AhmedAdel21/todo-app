@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -25,9 +23,6 @@ void main() {
       final result =
           await service.login(tLoginRequest.username, tLoginRequest.password);
       print(result.toJson());
-      result.todoTasks?.tasks!.forEach((element) {
-        print(element.toJson());
-      });
     });
   });
 }
@@ -35,17 +30,7 @@ void main() {
 final json = {
   "status": 0,
   "message": "Succuss",
-  "todoTasks": {
-    "tasks": [
-      {
-        "id": "5145615",
-        "icon": "icon",
-        "name": "name",
-        "description": "description",
-        "isDone": false,
-        "dateTime": "2019-03-28 10:06:27.090Z",
-        "timeOfDay": "10:5",
-      }
-    ],
-  },
+  "userId": 1,
+  "userName": "Dola",
+  "password": "123"
 };
