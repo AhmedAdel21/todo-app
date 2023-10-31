@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="74" height="74" viewBox="0 0 74 74">
+  <defs>
+    <filter id="Ellipse_2" x="0" y="0" width="74" height="74" filterUnits="userSpaceOnUse">
+      <feOffset dy="4" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#181743" flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient" x1="1.135" y1="0.633" x2="0.123" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fea64c"/>
+      <stop offset="1" stop-color="#fe1e9a"/>
+    </linearGradient>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Ellipse_2)">
+    <circle id="Ellipse_2-2" data-name="Ellipse 2" cx="28" cy="28" r="28" transform="translate(9 5)" fill="#fff"/>
+  </g>
+  <g id="Group_59" data-name="Group 59" transform="translate(24 19)">
+    <rect id="Rectangle_38" data-name="Rectangle 38" width="26" height="5" rx="1" transform="translate(0 21)" fill="url(#linear-gradient)"/>
+    <rect id="Rectangle_39" data-name="Rectangle 39" width="26" height="5" rx="1" transform="translate(0 12)" fill="url(#linear-gradient)"/>
+    <rect id="Rectangle_41" data-name="Rectangle 41" width="26" height="5" rx="1" transform="translate(0 3)" fill="url(#linear-gradient)"/>
+  </g>
+</svg>
