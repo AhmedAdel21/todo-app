@@ -5,7 +5,7 @@ import 'package:todo_app/data/data_source/local_data_source/local_data_source.da
 import 'package:todo_app/data/data_source/local_data_source/permanent_data_source/app_cache.dart';
 import 'package:todo_app/data/data_source/remote_data_source/remote_data_source.dart';
 import 'package:todo_app/data/managers/notification_plugin_manager_impl.dart';
-import 'package:todo_app/data/network/dio_factory.dart';
+import 'package:todo_app/data/network/rest_api/dio_factory.dart';
 import 'package:todo_app/data/network/network_info.dart';
 import 'package:todo_app/data/network/rest_api/app_api.dart';
 import 'package:todo_app/data/repository/repository_impl.dart';
